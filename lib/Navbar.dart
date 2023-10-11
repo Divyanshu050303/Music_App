@@ -10,7 +10,28 @@ class NavBar extends StatefulWidget {
   State<NavBar> createState() => _NavBarState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
+  late TabController tabController;
+  int selectedIndex=0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController=TabController(length: 3, vsync: this);
+    tabController.addListener(() {
+      setState(() {
+      selectedIndex=tabController.index;
+      print(selectedIndex);
+      });
+    });
+
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    tabController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
@@ -26,14 +47,31 @@ class _NavBarState extends State<NavBar> {
                     color: Colors.white30,
                     borderRadius: BorderRadius.circular(20)),
                 width: mediaQueryData.size.width * 0.4,
-                height: mediaQueryData.size.height * 0.08,
+                height: mediaQueryData.size.height * 0.07,
                 child:   TabBar(
                   indicator: CustomTabIndicator(),
-
-                  tabs: const [
-                    Tab(icon: Icon(Icons.home)),
-                    Tab(icon: Icon(Icons.settings_outlined)),
-                    Tab(icon: Icon(Icons.music_note_outlined)),
+                  controller: tabController,
+                  tabs:   [
+                    Tab(icon: Icon(Icons.home, shadows: selectedIndex==0?[const BoxShadow(
+                      color: Colors.pink, // Shadow color
+                      offset: Offset(1, 2),
+                      spreadRadius: 19,// Offset of the shadow
+                      blurRadius: 30,
+                    )]:[],)),
+                    Tab(icon: Icon(Icons.search_outlined, shadows: selectedIndex==1?[const BoxShadow(
+                      color: Colors.pink, // Shadow color
+                      offset: Offset(0, 2),
+                      spreadRadius: 19,// Offset of the shadow
+                      blurRadius: 30,
+                    )]:[],)),
+                    Tab(icon: Icon(Icons.library_music, shadows: selectedIndex==2?[
+                    const BoxShadow(
+                      color: Colors.pink, // Shadow color
+                      offset: Offset(0, 2),
+                      spreadRadius: 9,// Offset of the shadow
+                      blurRadius: 20,
+                    )
+                    ]:[],)),
                   ],
                 ),
               ),
@@ -73,7 +111,7 @@ class _CustomPainter extends BoxPainter {
     ) & const Size(40.0, 4.0); // Adjust the size and shape of the indicator
 
     final Paint paint = Paint();
-    paint.color = Colors.blue; // Indicator color
+    paint.color = Colors.pink.shade500; // Indicator color
 
     canvas.drawRect(rect, paint);
   }
