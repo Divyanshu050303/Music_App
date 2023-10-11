@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music/Screens/Player.dart';
 
 List<String> arr = [
   "assets/img1.png",
@@ -28,6 +29,7 @@ class _HomePageState extends State<HomePage> {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
     return Scaffold(
       body: Container(
+        height: mediaQueryData.size.height*0.91,
         decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
           Color.fromRGBO(128, 64, 105, 1),
@@ -95,34 +97,39 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(
                   top: mediaQueryData.size.height * 0.26,
                   left: mediaQueryData.size.width * 0.05),
-              child: Container(
-                width: mediaQueryData.size.width * 0.89,
-                height: mediaQueryData.size.height * 0.06,
-                decoration: BoxDecoration(
-                    color: Colors.white30,
-                    borderRadius: BorderRadius.circular(25)),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: mediaQueryData.size.width * 0.1),
-                      child: const Text(
-                        "Looking for...",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            decoration: TextDecoration.none),
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const Player()));
+                },
+                child: Container(
+                  width: mediaQueryData.size.width * 0.89,
+                  height: mediaQueryData.size.height * 0.06,
+                  decoration: BoxDecoration(
+                      color: Colors.white30,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: mediaQueryData.size.width * 0.1),
+                        child: const Text(
+                          "Looking for...",
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              decoration: TextDecoration.none),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: mediaQueryData.size.width * 0.25),
-                      child: const Icon(
-                        Icons.search,
-                        color: Colors.white,
-                      ),
-                    )
-                  ],
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: mediaQueryData.size.width * 0.37),
+                        child: const Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -142,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                     padding: EdgeInsets.only(
                         top: mediaQueryData.size.height * 0.36,
-                        left: mediaQueryData.size.width * 0.35),
+                        left: mediaQueryData.size.width * 0.43),
                     child: const Text(
                       "See All",
                       style: TextStyle(
@@ -193,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.white),
                   ),
                   SizedBox(
-                    width: mediaQueryData.size.width * 0.39,
+                    width: mediaQueryData.size.width * 0.45,
                     height: 3,
                   ),
                   const Text(
@@ -233,23 +240,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                  top: mediaQueryData.size.height * 0.89,
-                  left: mediaQueryData.size.width * 0.05),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white30,
-                    borderRadius: BorderRadius.circular(20)),
-                width: mediaQueryData.size.width * 0.9,
-                height: mediaQueryData.size.height * 0.08,
-                child:  const TabBar(tabs: [
-                  Icon(Icons.home_outlined)
-                ],
 
-                )
-              ),
-            )
           ],
         ),
       ),
