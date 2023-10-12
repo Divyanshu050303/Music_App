@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music/Screens/HomePaage.dart';
 import 'package:music/Screens/Setting.dart';
+import 'package:music/Screens/library.dart';
 import 'package:music/Screens/music.dart';
 
 class NavBar extends StatefulWidget {
@@ -21,7 +22,6 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
     tabController.addListener(() {
       setState(() {
       selectedIndex=tabController.index;
-      print(selectedIndex);
       });
     });
 
@@ -29,8 +29,8 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
   @override
   void dispose() {
     // TODO: implement dispose
-    super.dispose();
     tabController.dispose();
+    super.dispose();
   }
   @override
   Widget build(BuildContext context) {
@@ -58,13 +58,13 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
                       spreadRadius: 19,// Offset of the shadow
                       blurRadius: 30,
                     )]:[],)),
-                    Tab(icon: Icon(Icons.search_outlined, shadows: selectedIndex==1?[const BoxShadow(
+                    Tab(icon: Icon(Icons.library_music, shadows: selectedIndex==1?[const BoxShadow(
                       color: Colors.pink, // Shadow color
                       offset: Offset(0, 2),
                       spreadRadius: 19,// Offset of the shadow
                       blurRadius: 30,
                     )]:[],)),
-                    Tab(icon: Icon(Icons.library_music, shadows: selectedIndex==2?[
+                    Tab(icon: Icon(Icons.settings, shadows: selectedIndex==2?[
                     const BoxShadow(
                       color: Colors.pink, // Shadow color
                       offset: Offset(0, 2),
@@ -77,11 +77,12 @@ class _NavBarState extends State<NavBar> with TickerProviderStateMixin {
               ),
             ),
 
-          body: const TabBarView(
+          body:   TabBarView(
+            controller: tabController,
             children: [
                HomePage(),
-              Setting(),
-              Music()
+              Library(),
+              Setting()
             ],
           ),
         ),
