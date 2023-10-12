@@ -41,30 +41,36 @@ class _HomePageState extends State<HomePage> {
           children: [
             Row(
               children: [
-                ClipPath(
-                  clipper: NotchClipper(),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: LinearGradient(
-                            colors: [Colors.blue, Colors.red],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter)),
-                    child: const Icon(
-                      Icons.dashboard,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                // ClipPath(
+                //   clipper: NotchClipper(),
+                //   child: Container(
+                //     width: 100,
+                //     height: 100,
+                //     decoration: const BoxDecoration(
+                //         shape: BoxShape.circle,
+                //         gradient: LinearGradient(
+                //             colors: [Colors.blue, Colors.red],
+                //             begin: Alignment.topCenter,
+                //             end: Alignment.bottomCenter)),
+                //     child: const Icon(
+                //       Icons.dashboard,
+                //       color: Colors.white,
+                //     ),
+                //   ),
+                // ),
+        Padding(
+          padding:   EdgeInsets.only(left: mediaQueryData.size.width*0.08, top: mediaQueryData.size.height*0.02),
+          child: const Icon(
+                Icons.dashboard,
+                color: Colors.white,),
+        ),
                 Padding(
                   padding: EdgeInsets.only(
                       top: mediaQueryData.size.height * 0.05,
-                      left: mediaQueryData.size.width * 0.52),
+                      left: mediaQueryData.size.width * 0.62),
                   child: const CircleAvatar(
                     radius: 24,
-                    backgroundImage: AssetImage("assets/img.jpg"),
+                    backgroundImage: AssetImage("assets/pxfuel.jpg"),
                   ),
                 )
               ],
