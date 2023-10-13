@@ -1,16 +1,9 @@
-# music
+# music App 
+<img src="https://github.com/Divyanshu050303/screenshots/blob/main/musicapp/WhatsApp%20Image%202023-10-12%20at%2021.58.10_9363bc7a.jpg?raw=true" height = 420> <img src="https://github.com/Divyanshu050303/screenshots/blob/main/musicapp/WhatsApp%20Image%202023-10-12%20at%2021.58.10_0cd0df53.jpg?raw=true" height = 420>  <img src="https://github.com/Divyanshu050303/screenshots/blob/main/musicapp/WhatsApp%20Image%202023-10-12%20at%2021.58.11_1b6e3db0.jpg?raw=true" height = 420>  <img src="https://github.com/Divyanshu050303/screenshots/blob/main/musicapp/WhatsApp%20Image%202023-10-12%20at%2021.58.11_25390248.jpg?raw=true" height = 420> 
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/Divyanshu050303/Music_App/assets/80775542/07485ae8-f205-454a-bbf6-0a7fe407b170
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
